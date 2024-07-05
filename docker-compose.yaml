@@ -1,0 +1,22 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "5000:5000"
+
+
+
+# Explanation
+# Backend Service: Exposes port 5000 for the Flask API.
+# Frontend Service: Exposes port 8080 for the Vue.js app.
+# Nginx Service: Exposes port 80 for incoming HTTP traffic.
