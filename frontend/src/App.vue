@@ -1,35 +1,19 @@
+/* eslint-disable */
+<!-- <template>
+  <img alt="Vue logo" src="./assets/logo.png">
+  <ApiTextProcessor msg="Welcome to HotmartGPT"/>
+</template> -->
+
 <template>
   <div id="app">
-    <h1>HotmartGPT</h1>
-    <input type="text" v-model="textInput" placeholder="Enter text" />
-    <button @click="sendText">Send</button>
-    <div>{{ response }}</div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-
 export default {
-  data() {
-    return {
-      textInput: '',
-      response: ''
-    };
-  },
-  methods: {
-    async sendText() {
-      try {
-        const res = await axios.post(`${process.env.VUE_APP_FRONTEND_URL}/sendText`, {
-          text: this.textInput
-        });
-        this.response = res.data.response;
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    }
-  }
-};
+  name: 'HomePage'
+}
 </script>
 
 <style>
