@@ -4,15 +4,13 @@ from flask_cors import CORS
 from process_text import initialize_processed_text, ProcessedText
 app = Flask(__name__)
 CORS(app)
-
 socketio = SocketIO(app, cors_allowed_origins="*")
+processed_text = initialize_processed_text("https://hotmart.com/pt-br/blog/como-funciona-hotmart")
 
 @app.route('/genai', methods=['POST'])
 def generate_answer():
-# https://hotmart.com/pt-br/blog/como-funciona-hotmart
     # data = request.json
     # answer = data['text']
-    processed_text = initialize_processed_text("https://hotmart.com/pt-br/blog/como-funciona-hotmart")
     return jsonify({'answer': f'{processed_text.extrected_text}'})
 
 if __name__ == '__main__':
