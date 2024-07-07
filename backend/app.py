@@ -11,9 +11,9 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 @app.route('/genai', methods=['POST'])
 def generate_answer():
 # https://hotmart.com/pt-br/blog/como-funciona-hotmart
-    data = request.json
-    answer = data['text']
-    # answer = extract_text_from_url("https://hotmart.com/pt-br/blog/como-funciona-hotmart")
+    # data = request.json
+    # answer = data['text']
+    answer = extract_text_from_url("https://hotmart.com/pt-br/blog/como-funciona-hotmart")
     return jsonify({'answer': f'{answer}'})
 
 if __name__ == '__main__':
