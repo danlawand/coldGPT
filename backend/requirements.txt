@@ -1,3 +1,5 @@
 Flask
 Flask-SocketIO
-Flask-Cors
+flask-cors
+bs4
+requests

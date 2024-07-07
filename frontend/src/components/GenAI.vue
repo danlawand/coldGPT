@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'GenAI',
   data () {
@@ -17,8 +19,17 @@ export default {
     }
   },
   methods: { 
-    sendText() {
-      this.response = this.textInput;
+    async sendText() {
+      try {
+        const res = await axios.post("http://localhost:5000/genai",
+        {
+          "text": this.textInput
+        });
+        this.response = res.data.answer;
+      }
+      catch (error){
+        this.response = error.message;
+      }
     }
   }
 }
