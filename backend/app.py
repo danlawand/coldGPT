@@ -12,8 +12,11 @@ processed_text = initialize_processed_text("")
 def generate_answer():
     # data = request.json
     # answer = data['text']
-    processed_text.extracted_text = "Ola"
-    return jsonify({'answer': f'{processed_text.extracted_text}'})
+    answer = processed_text.query_answer("green")
+    print("----")
+    print(answer)
+    print("----")
+    return jsonify({'answer': f'{answer}'})
 
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=5000, allow_unsafe_werkzeug=True)

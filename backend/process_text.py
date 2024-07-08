@@ -15,5 +15,9 @@ class ProcessedText:
         [{"url": "https://apples.com"}, {"url": "https://oranges.com"}], # associate any kind of metadata with it (optional)
         )
 
+    def query_answer(self, query: str):
+        print("--query--")
+        return self.memory.search(query, top_n = 1)
+
 def initialize_processed_text(url: str) -> ProcessedText:
     return ProcessedText(url)
