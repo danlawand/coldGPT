@@ -5,14 +5,12 @@ from process_text import initialize_processed_text, ProcessedText
 app = Flask(__name__)
 CORS(app)
 socketio = SocketIO(app, cors_allowed_origins="*")
-# processed_text = initialize_processed_text("https://hotmart.com/pt-br/blog/como-funciona-hotmart")
-processed_text = initialize_processed_text("")
+processed_text = initialize_processed_text("https://hotmart.com/pt-br/blog/como-funciona-hotmart")
 
 @app.route('/genai', methods=['POST'])
 def generate_answer():
-    # data = request.json
-    # answer = data['text']
-    answer = processed_text.query_answer("green")
+    data = request.json
+    answer = processed_text.query_answer(data['text'])
     return jsonify({'answer': f'{answer}'})
 
 if __name__ == '__main__':
