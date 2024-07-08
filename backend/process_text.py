@@ -10,11 +10,14 @@ class ProcessedText:
         self.extrected_text = extract_text_from_url(url)
 
     def memorize_text(self):
-        self.memory.save(["apples are green", "oranges are orange"])
+        text = """
+        apples are green oranges are orange
+        """
+        self.memory.save(text)
 
     def query_answer(self, text: str):
         query_response = self.memory.search(text, top_n = 1)
-        return  str(query_response)
+        return str(query_response)
 
 def initialize_processed_text(url: str) -> ProcessedText:
     return ProcessedText(url)
