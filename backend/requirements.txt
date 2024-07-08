@@ -3,3 +3,4 @@ Flask-SocketIO
 flask-cors
 bs4
 requests
+vectordb2
