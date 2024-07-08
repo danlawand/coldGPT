@@ -13,9 +13,6 @@ def generate_answer():
     # data = request.json
     # answer = data['text']
     answer = processed_text.query_answer("green")
-    print("----")
-    print(answer)
-    print("----")
     return jsonify({'answer': f'{answer}'})
 
 if __name__ == '__main__':

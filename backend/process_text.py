@@ -4,20 +4,17 @@ from vectordb import Memory
 class ProcessedText:
     def __init__(self, url: str):
         self.extracted_text = extract_text_from_url(url)
+        self.memory = Memory()
 
     def update_extracted_text(self, url: str):
         self.extrected_text = extract_text_from_url(url)
 
     def memorize_text(self):
-        self.memory = Memory()
-        memory.save(
-        ["apples are green", "oranges are orange"],  # save your text content. for long text we will automatically chunk it
-        [{"url": "https://apples.com"}, {"url": "https://oranges.com"}], # associate any kind of metadata with it (optional)
-        )
+        self.memory.save(["apples are green", "oranges are orange"])
 
-    def query_answer(self, query: str):
-        print("--query--")
-        return self.memory.search(query, top_n = 1)
+    def query_answer(self, text: str):
+        query_response = self.memory.search(text, top_n = 1)
+        return  str(query_response)
 
 def initialize_processed_text(url: str) -> ProcessedText:
     return ProcessedText(url)
