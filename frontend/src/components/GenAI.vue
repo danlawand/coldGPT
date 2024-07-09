@@ -25,7 +25,7 @@ export default {
         {
           "text": this.textInput
         });
-        this.response = res.data.answer;
+        this.response = res.data;
       }
       catch (error){
         this.response = error.message;

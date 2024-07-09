@@ -11,7 +11,7 @@ processed_text = initialize_processed_text("https://hotmart.com/pt-br/blog/como-
 def generate_answer():
     data = request.json
     answer = processed_text.query_answer(data['text'])
-    return jsonify({'answer': f'{answer}'})
+    return  f'{answer}'
 
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=5000, allow_unsafe_werkzeug=True)
