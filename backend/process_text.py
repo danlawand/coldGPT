@@ -11,9 +11,6 @@ class ProcessedText:
     def update_extracted_text(self, url: str):
         self.extrected_text = extract_text_from_url(url)
 
-    def memorize_text(self, text, metadata):
-        self.memory.save(text, metadata)
-
     def query_answer(self, text: str):
         query_response = self.memory.search(text, top_n = 3)
         
