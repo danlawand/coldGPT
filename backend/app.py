@@ -14,8 +14,8 @@ model = initialize_llm_model()
 @app.route('/genai', methods=['POST'])
 def generate_answer():
     data = request.json
-    answer = processed_text.query_answer(data['text'])
-    model.generate_answer(answer, data['text'])
+    query_ans = processed_text.query_answer(data['text'])
+    answer = model.generate_2nd(query_ans)
     return  f'{answer}'
 
 if __name__ == '__main__':
