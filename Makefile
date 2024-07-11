@@ -2,10 +2,6 @@ DOCKER_BUILD_FRONTEND := docker build -t hotmartgpt_frontend ./frontend
 DOCKER_RUN_FRONTEND := docker run -p 8080:8080 hotmartgpt_frontend
 DOCKER_BUILD_BACKEND := docker build -t hotmartgpt_backend ./backend
 DOCKER_RUN_BACKEND := docker run -p 5000:5000 hotmartgpt_backend
-DOCKER_COMPOSE_BUILD_RUN := docker-compose up --build
-DOCKER_COMPOSE_RUN := docker-compose up
-
-all: build_front build_back run_front run_back
 
 front: build_front run_front
 
