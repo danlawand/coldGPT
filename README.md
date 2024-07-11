@@ -30,6 +30,8 @@ Espere o build das duas imagens para começar a usar a aplicação.
 
 
 ### Usando make
+Para realizar o build desta forma, será preciso ter em mãos a chave de API do HuggingFace.
+E alterar os arquivos ./backend/.env e ./backend/Dockerfile para adicionar a chave de API.
 
 1. `make front`
 Esse comando realiza a construção da imagem do frontend e o executa.
