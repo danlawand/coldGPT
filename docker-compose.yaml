@@ -1,12 +1,10 @@
 version: '3'
 services:
   frontend:
-    build: ./frontend
+    image: danlawand/frontvuegpt:latest
     ports:
     - "8080:8080"
   backend:
     image: danlawand/personalgpt:latest
     ports:
     - "5000:5000"
-    env_file:
-      - ./backend/.env
