@@ -19,8 +19,7 @@ def generate_answer():
     question =  data['text']
     context = processed_text.query_answer(question)
     llm_result = llm_query(question, context)
-    answer = llm_result['answer']
-    return  f'{answer}'
+    return  f'{llm_result}'
 
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=5000, allow_unsafe_werkzeug=True)

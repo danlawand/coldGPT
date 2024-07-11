@@ -12,7 +12,7 @@ class ProcessedText:
         self.extrected_text = extract_text_from_url(url)
 
     def query_answer(self, text: str):
-        query_response = self.memory.search(text, top_n = 10)
+        query_response = self.memory.search(text, top_n = 15)
         
         if len(query_response) <= 0:
             return """ Não foi encontrada informação que possa ajudar."""
@@ -20,5 +20,3 @@ class ProcessedText:
 
 def initialize_processed_text(url: str) -> ProcessedText:
     return ProcessedText(url)
-
-# 200 / 50 /10
