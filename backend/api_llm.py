@@ -1,8 +1,5 @@
-import requests
-import os
-from dotenv import load_dotenv
+import requests, os, time
 
-load_dotenv()
 api_key = os.getenv('API_KEY_HUGGING')
 api_url = os.getenv('API_LLM_URL')
 
@@ -17,5 +14,6 @@ def llm_query(question, context):
     }
 
     response = requests.post(API_URL, headers=headers, json=payload)
+    time.sleep(0.5)
     data = response.json()
-    return data['answer']
+    return data

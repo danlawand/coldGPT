@@ -1,5 +1,4 @@
 import os
-from dotenv import load_dotenv
 from flask import Flask, request, jsonify
 from flask_socketio import SocketIO
 from flask_cors import CORS
@@ -11,7 +10,6 @@ app = Flask(__name__)
 CORS(app)
 socketio = SocketIO(app, cors_allowed_origins="*")
 
-load_dotenv()
 url_hotmart = os.getenv('URL_HOTMART')
 processed_text = initialize_processed_text(url_hotmart)
 
@@ -20,7 +18,8 @@ def generate_answer():
     data = request.json
     question =  data['text']
     context = processed_text.query_answer(question)
-    answer = llm_query(question, context)
+    llm_result = llm_query(question, context)
+    answer = llm_result['answer']
     return  f'{answer}'
 
 if __name__ == '__main__':
