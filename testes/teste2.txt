@@ -8,4 +8,4 @@ curl --request POST \
 }'
 
 Output:
-Produtor
+ oferece uma plataforma EAD

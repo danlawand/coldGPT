@@ -9,5 +9,5 @@ curl --request POST \
 
 Output:
 
-9.9% do preço do produto + R$ 1
+não precisa ter um produto próprio para começar a vender;
 
