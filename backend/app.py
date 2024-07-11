@@ -1,21 +1,26 @@
+import os
+from dotenv import load_dotenv
 from flask import Flask, request, jsonify
 from flask_socketio import SocketIO
 from flask_cors import CORS
 from process_text import initialize_processed_text, ProcessedText
-from llm import  initialize_llm_model
+from api_llm import llm_query
+
 
 app = Flask(__name__)
 CORS(app)
 socketio = SocketIO(app, cors_allowed_origins="*")
 
-processed_text = initialize_processed_text("https://hotmart.com/pt-br/blog/como-funciona-hotmart")
-model = initialize_llm_model()
+load_dotenv()
+url_hotmart = os.getenv('URL_HOTMART')
+processed_text = initialize_processed_text(url_hotmart)
 
 @app.route('/genai', methods=['POST'])
 def generate_answer():
     data = request.json
-    query_ans = processed_text.query_answer(data['text'])
-    answer = model.generate_2nd(query_ans)
+    question =  data['text']
+    context = processed_text.query_answer(question)
+    answer = llm_query(question, context)
     return  f'{answer}'
 
 if __name__ == '__main__':
