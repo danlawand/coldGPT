@@ -28,7 +28,7 @@ No diretório backend está o código do processamento de texto e da construçã
 Essa alternativa constrói e executa a aplicação de ponta a ponta. 
 É feito o build da imagem do frontend localmente e é feito o pull da imagem do backend disponível no [Docker Hub](https://hub.docker.com/r/danlawand/personalgpt).
 
-2. `make all`
+2. `make front` & `make back`
 Essa alternativa também constrói e executa a aplicação de ponta a ponta, porém a diferença é que se faz o build da imagem do backend localmente. 
 
 3. `make back`
