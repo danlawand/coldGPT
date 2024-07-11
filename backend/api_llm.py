@@ -12,10 +12,11 @@ def llm_query(question, context):
             "context": context
     },
     }
+    try:
+        response = requests.post(API_URL, headers=headers, json=payload)            
+        time.sleep(0.5)
+        data = response.json()
+        return data['answer']
+    except Exception as ex:
+        return "API timeout. Try again in a few seconds" 
 
-    response = requests.post(API_URL, headers=headers, json=payload)
-    if (response is None):
-        return "API timeout. Try again in a few seconds"
-    time.sleep(0.5)
-    data = response.json()
-    return data['answer']
