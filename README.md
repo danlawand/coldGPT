@@ -22,18 +22,21 @@ No diretório backend está o código do processamento de texto e da construçã
 
 ## Como rodar:
 
-### Sugere-se três maneiras para rodar a aplicação.
+### Usando Docker Compose
 
-1. `docker-compose up --build`
-Essa alternativa constrói e executa a aplicação de ponta a ponta. 
-É feito o build da imagem do frontend localmente e é feito o pull da imagem do backend disponível no [Docker Hub](https://hub.docker.com/r/danlawand/personalgpt).
+1. `docker-compose up`
+Essa alternativa realiza o pull das imagens do backend e do frontend disponíveis no [Docker Hub](https://hub.docker.com/r/danlawand/) e executa a aplicação de ponta a ponta.
+Espere o build das duas imagens para começar a usar a aplicação.
 
-2. `make front` & `make back`
-Essa alternativa também constrói e executa a aplicação de ponta a ponta, porém a diferença é que se faz o build da imagem do backend localmente. 
 
-3. `make back`
-Essa alternativa apenas constrói e executa o backend, e ignora o frontend.
-Essa é uma alternativa para quem quer testar apenas a exatidão das respostas do HotmartGPT. 
+### Usando make
+
+1. `make front`
+Esse comando realiza a construção da imagem do frontend e o executa.
+
+2. `make back`
+Esse comando realiza a construção da imagem do backend e o executa.
+Espere o build das duas imagens para começar a usar a aplicação.
 
 ## Como testar:
 
