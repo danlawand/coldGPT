@@ -1,6 +1,12 @@
+Input:
+
 curl --request POST \
   --url http://localhost:5000/genai \
   --header 'Content-Type: application/json' \
   --data '{
 	"text": "O que é a Hotmart?"
 }'
+
+
+Output:
+uma empresa global de tecnologia e educação

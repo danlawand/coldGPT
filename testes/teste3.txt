@@ -1,6 +1,13 @@
+Input:
+
 curl --request POST \
   --url http://localhost:5000/genai \
   --header 'Content-Type: application/json' \
   --data '{
 	"text": "Qual é o preço dos produtos da Hotmart?"
 }'
+
+Output:
+
+9.9% do preço do produto + R$ 1
+

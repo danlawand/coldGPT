@@ -1,6 +1,13 @@
+Input:
+
 curl --request POST \
   --url http://localhost:5000/genai \
   --header 'Content-Type: application/json' \
   --data '{
 	"text": "Onde fica os escritórios da Hotmart?"
 }'
+
+
+Output:
+
+Produtor
