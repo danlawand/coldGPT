@@ -1,78 +1,77 @@
-# HotmartGPT
+# Prompt Engineering Project - coldGPT
 
-## Sobre o projeto
-Desenvolvido para solucionar o desafio avaliativo para a vaga de Engenheiro de M.L. da [Hotmart](https://hotmart.com/pt-br).
+## About
+Developed to solve the evaluation challenge for a ML Engineer position.
 
-A implementação foi feita pensando na exatidão das respostas, na experiência do usuário, na clareza de código e no tempo de build e execução da aplicação.
+The implementation was made with the accuracy of the answers in mind, the user experience, the clarity of the code and the build and execution time of the application.
 
-A aplicação possui uma interface em que o usuário pode utilizar para fazer perguntas sobre ao HotmartGPT.
-O código da interface, implementado com o framework Vue, está localizado no diretório frontend.
+The application has an interface that the user can use to ask questions to the coldGPT.
+The interface code, implemented with the Vue framework, is located in the frontend directory.
 
-No diretório backend está o código do processamento de texto e da construção da LLM. A LLM foi construída com o modelo [mdeberta-v3-base-squad2](https://huggingface.co/timpal0l/mdeberta-v3-base-squad2).
+In the backend directory is the code for text processing and building the LLM. The LLM was built using the [mdeberta-v3-base-squad2](https://huggingface.co/timpal0l/mdeberta-v3-base-squad2) model.
 
+## System requirements
+1. install Docker Engine:
 
-## Requisitos do sistema
-1. Instale Docker Engine:
+    * Follow the step-by-step on the following link [Docker Documentation](https://docs.docker.com/engine/install/)
 
-    * Siga o passo-a-passo no link a seguir [Documentação Docker](https://docs.docker.com/engine/install/)
-
-2. Instale Docker-Compose:
+2. Install Docker-Compose:
     
-    * Siga as instruções no link a seguir  [Instalação Docker-Compose](https://docs.docker.com/compose/install/standalone/)
+    * Follow the instructions in the following link [Docker-Compose Installation](https://docs.docker.com/compose/install/standalone/)
 
-## Como rodar:
+## How to run:
 
-### Usando Docker Compose
+### Using Docker Compose
 
 1. `docker-compose up`
-Essa alternativa realiza o pull das imagens do backend e do frontend disponíveis no [Docker Hub](https://hub.docker.com/r/danlawand/) e executa a aplicação de ponta a ponta.
-Espere o build das duas imagens para começar a usar a aplicação.
+This alternative pulls the backend and frontend images available on [Docker Hub](https://hub.docker.com/r/danlawand/) and runs the application end-to-end.
+Wait for the two images to be built before you start using the application.
 
-
-### Usando make
-Para realizar o build desta forma, será preciso ter em mãos a chave de API do HuggingFace.
-E alterar os arquivos ./backend/.env e ./backend/Dockerfile para adicionar a chave de API.
+### Using make
+To build in this way, you'll need the HuggingFace API key.
+And change the ./backend/.env and ./backend/Dockerfile files to add the API key.
 
 1. `make front`
-Esse comando realiza a construção da imagem do frontend e o executa.
+This command builds the frontend image and runs it.
 
 2. `make back`
-Esse comando realiza a construção da imagem do backend e o executa.
-Espere o build das duas imagens para começar a usar a aplicação.
+This command builds the backend image and runs it.
+Wait for the two images to be built before you start using the application.
 
-## Como testar:
+## How to test it:
 
-### Sugere-se três maneiras para testar a aplicação:
+### We suggest three ways to test the application:
 
-1. Via frontend:
+1. Via the frontend:
 
-Caso tenha buildado o frontend, você poderá acessar no seu navegador o endpoint `http://localhost:8080` e terá o passo a passo para realizar a pergunta ao HotmartGPT.
+If you have built the frontend, you can access the `http://localhost:8080` endpoint in your browser and you will have the step-by-step instructions for asking coldGPT the question.
 
 2. Via API Client
 
-Nesse caso, não é necessário ter buildado o frontend.
-É apenas necessário o uso de um API Client como Postman ou Insomnia.
-Para realizar a pergunta ao HotmartGPT, será necessário selecionar o method POST com o endpoint `http://localhost:5000/genai`. O body do request será no formato JSON com o padrão a seguir:
+In this case, you don't need to have built the frontend.
+You just need to use an API Client such as Postman or Insomnia.
+To make the request to coldGPT, you need to select the POST method with the endpoint `http://localhost:5000/genai`. The body of the request will be in JSON format with the following pattern:
 
 ```js
 {
-    "text": "Sua Pergunta"
+    “text": ”Your Question”
 }
 ```
 
 3. Via cURL
 
-Nesse caso também não será preciso buildar o frontend.
-Via terminal realize o comando cURL.
-Segue um exemplo:
+In this case you don't need to build the frontend either.
+Use the cURL command in the terminal.
+Here's an example:
 
 ```sh
 curl --request POST \
   --url http://localhost:5000/genai \
   --header 'Content-Type: application/json' \
   --data '{
-	"text": "Sua Pergunta"
+	"text": "Your Question"
 }'
 ```
-Mais testes via cURL estão disponibilizados nos arquivos no diretório `./testes`.
-Cada arquivo tem um comando de entrada e o output gerado pelo HotmartGPT.
+
+More tests via cURL are available in the files in the directory `./testes`.
+Each file has an input command and the output generated by coldGPT.
