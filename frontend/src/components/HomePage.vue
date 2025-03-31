@@ -1,7 +1,7 @@
 <!-- src/components/Home.vue -->
 <template>
   <div>
-    <h1>Welcome to HotmartGPT</h1>
+    <h1>Welcome to coldGPT</h1>
     <router-link to="/genai">Chat to coldGPT</router-link>
   </div>
 </template>
