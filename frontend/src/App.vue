@@ -1,7 +1,7 @@
 /* eslint-disable */
 <!-- <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <ApiTextProcessor msg="Welcome to HotmartGPT"/>
+  <ApiTextProcessor msg="Welcome to coldGPT"/>
 </template> -->
 
 <template>
