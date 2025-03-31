@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Chat with HotmartGPT</h1>
+    <h1>Chat with coldGPT</h1>
     <input type="text" v-model="textInput" placeholder="Enter text" />
     <button @click="sendText">Send</button>
     <p>{{response}}</p>
