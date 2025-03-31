@@ -2,7 +2,7 @@
 <template>
   <div>
     <h1>Welcome to HotmartGPT</h1>
-    <router-link to="/genai">Chat to HotmartGPT</router-link>
+    <router-link to="/genai">Chat to coldGPT</router-link>
   </div>
 </template>
 
